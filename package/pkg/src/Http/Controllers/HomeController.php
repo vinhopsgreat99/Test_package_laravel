@@ -32,8 +32,9 @@ class HomeController extends Controller
     //Checking the usertype for accessing admin's page or user's page
     public function redirect()
     {
+        dd(Auth::user());
         $usertype = Auth::user()->usertype;
-
+        dd($usertype);
         if ($usertype == '1') {
             $total_product = product::all()->count();
             $total_order = order::all()->count();
@@ -52,14 +53,14 @@ class HomeController extends Controller
             return view('admin.home', compact('total_product', 'total_order', 'total_user', 'total_revenue', 'total_delivered', 'total_processing'));
         } else {
             $product = Product::paginate(2);
-            return view('home.userpage', compact('product'));
+            return view('pkg::userpage', compact('product'));
         }
     }
 
     public function product_details($id)
     {
         $product = product::find($id);
-        return view('home.product_details', compact('product'));
+        return view('pkg::product_details', compact('product'));
     }
 
     public function add_cart(Request $request, $id)
@@ -134,7 +135,7 @@ class HomeController extends Controller
         if (Auth::id()) {
             $id = Auth::user()->id;
             $cart = cart::where('user_id', '=', $id)->get();
-            return view('home.showcart', compact('cart'));
+            return view('pkg::showcart', compact('cart'));
         } else {
             return redirect('login');
         }
@@ -191,7 +192,7 @@ class HomeController extends Controller
             $user = Auth::user();
             $userid = $user->id;
             $order = order::where('user_id', '=', $userid)->get();
-            return view('home.order', compact('order'));
+            return view('pkg::order', compact('order'));
         } else {
             return redirect('login');
         }

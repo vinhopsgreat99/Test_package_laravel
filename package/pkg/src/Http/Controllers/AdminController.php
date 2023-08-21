@@ -1,14 +1,21 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace Vinh\Pkg\Http\Controllers;
+
+use  Vinh\Pkg\Models\Cart;
+
+use  Vinh\Pkg\Models\User;
+
+
+use App\Http\Controllers\Controller;
 
 use Illuminate\Http\Request;
 
-use App\Models\Category;
+use Vinh\Pkg\Models\Category;
 
-use App\Models\Product;
+use Vinh\Pkg\Models\Product;
 
-use App\Models\Order;
+use Vinh\Pkg\Models\Order;
 
 
 use Illuminate\Support\Facades\Redirect;
@@ -20,7 +27,7 @@ class AdminController extends Controller
     public function view_category()
     {
         $data = category::all();
-        return view('admin.category', compact('data'));
+        return view('pkg::admin.category', compact('data'));
     }
 
     public function add_category(Request $request)
@@ -44,7 +51,7 @@ class AdminController extends Controller
     public function view_product()
     {
         $category = category::all();
-        return view('admin.product', compact('category'));
+        return view('vinh.pkg.admin.product', compact('category'));
     }
 
     public function add_product(Request $request)
