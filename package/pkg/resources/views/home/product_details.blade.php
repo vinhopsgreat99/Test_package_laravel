@@ -15,19 +15,19 @@
     <link rel="shortcut icon" href="vinh/pkg/images/favicon.png" type="">
     <title>Famms - Fashion HTML Template</title>
     <!-- bootstrap core css -->
-    <link rel="stylesheet" type="text/css" href="vinh/pkl/home/css/bootstrap.css" />
+    <link rel="stylesheet" type="text/css" href="vinh/pkg/home/css/bootstrap.css" />
     <!-- font awesome style -->
-    <link href="vinh/pkl/home/css/font-awesome.min.css" rel="stylesheet" />
+    <link href="vinh/pkg/home/css/font-awesome.min.css" rel="stylesheet" />
     <!-- Custom styles for this template -->
-    <link href="vinh/pkl/home/css/style.css" rel="stylesheet" />
+    <link href="vinh/pkg/home/css/style.css" rel="stylesheet" />
     <!-- responsive style -->
-    <link href="vinh/pkl/home/css/responsive.css" rel="stylesheet" />
+    <link href="vinh/pkg/home/css/responsive.css" rel="stylesheet" />
 </head>
 
 <body>
     <div class="hero_area">
         <!-- header section strats -->
-        @include('home.header')
+        @include('pkg::header')
         <!-- end header section -->
 
 
@@ -116,7 +116,7 @@
         </div>
 
         <!-- footer start -->
-        @include('home.footer')
+        @include('pkg::home.footer')
         <!-- footer end -->
         <div class="cpy_">
             <p class="mx-auto">© 2021 All Rights Reserved By <a href="https://html.design/">Free Html Templates</a><br>
