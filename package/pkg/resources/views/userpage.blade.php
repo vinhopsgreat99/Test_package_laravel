@@ -26,7 +26,7 @@
 <body>
   <div class="hero_area">
     <!-- header section strats -->
-    @include('header')
+    @include('pkg::header')
     <!-- end header section -->
     <!-- slider section -->
     @include('pkg::slider')
