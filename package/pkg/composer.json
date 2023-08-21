@@ -1,0 +1,20 @@
+{
+    "name": "vinh/pkg",
+    "description": "this is a pkg",
+    "type": "library",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Vinh\\Pkg\\": "src/"
+        }
+    },
+    "minimum-stability": "dev",
+    "require": {},"extra": {
+        "laravel": {
+            "providers": [
+                "Vinh\\Pkg\\PkgServiceProvider"
+            ]
+
+        }
+    }
+}
