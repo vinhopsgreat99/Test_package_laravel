@@ -2,25 +2,21 @@
 
 namespace Vinh\Pkg\Http\Controllers;
 
-use App\Http\Controllers\Controller;
-
-use Illuminate\Http\Request;
-
-use Illuminate\Support\Facades\Auth;
-
-use Illuminate\Support\Facades\Session;
-
 use  Vinh\Pkg\Models\Cart;
 
 use  Vinh\Pkg\Models\User;
 
 use  Vinh\Pkg\Models\Order;
 
-use Vinh\Pkg\Models\Product;
 
+use Illuminate\Http\Request;
 
+use  Vinh\Pkg\Models\Product;
 
+use App\Http\Controllers\Controller;
 
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Session;
 
 
 //Processing the data in the user's page
@@ -30,7 +26,8 @@ class HomeController extends Controller
     {
         // $product = Product::all(); //for displaying all products
         $product = Product::paginate(2);
-       
+        $users = User::all();
+        
         // Limit the number of products which be displayed on page
         return view('pkg::userpage', compact('product'));
     }
@@ -41,21 +38,21 @@ class HomeController extends Controller
         $usertype = Auth::user()->usertype;
     
         if ($usertype == '1') {
-            // $total_product = product::all()->count();
-            // $total_order = order::all()->count();
-            // $total_user = user::where('usertype', '=', '0')->count();
-            // $order = order::all();
-            // $total_revenue = 0;
+            $total_product = product::all()->count();
+            $total_order = order::all()->count();
+            $total_user = user::where('usertype', '=', '0')->count();
+            $order = order::all();
+            $total_revenue = 0;
             
-            // foreach($order as $order) {
-            //     $total_revenue += $order->price;
-            // }
+            foreach($order as $order) {
+                $total_revenue += $order->price;
+            }
             
-            // $total_delivered = order::where('delivery_status', '=', 'delivered')->count();
-            // $total_processing = order::where('delivery_status', '=', 'processing')->count();
+            $total_delivered = order::where('delivery_status', '=', 'delivered')->count();
+            $total_processing = order::where('delivery_status', '=', 'processing')->count();
 
             
-            return view('vinh.pkg.admin.home', compact('total_product', 'total_order', 'total_user', 'total_revenue', 'total_delivered', 'total_processing'));
+            return view('admin.home', compact('total_product', 'total_order', 'total_user', 'total_revenue', 'total_delivered', 'total_processing'));
         } else {
             $product = Product::paginate(2);
             return view('pkg::userpage', compact('product'));

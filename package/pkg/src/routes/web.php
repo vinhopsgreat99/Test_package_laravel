@@ -1,5 +1,6 @@
 <?php
 
+
 use Illuminate\Support\Facades\Route;
 
 use Vinh\Pkg\Http\Controllers\HomeController;
@@ -29,7 +30,7 @@ Route::middleware([
     'verified'
 ])->group(function () {
     Route::get('/dashboard', function () {
-        return view('vinh.pkg.dashboard');
+        return view('dashboard');
     })->name('dashboard');
 });
 

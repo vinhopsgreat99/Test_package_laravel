@@ -2,21 +2,24 @@
 
 namespace Vinh\Pkg\Http\Controllers;
 
+use  Vinh\Pkg\Models\Cart;
+
+use  Vinh\Pkg\Models\User;
+
+
 use App\Http\Controllers\Controller;
 
 use Illuminate\Http\Request;
 
-use Vinh\Pkg\Models\Cart;
-
-use Vinh\Pkg\Models\User;
-
 use Vinh\Pkg\Models\Category;
- 
+
 use Vinh\Pkg\Models\Product;
 
 use Vinh\Pkg\Models\Order;
 
 
+use Illuminate\Support\Facades\Redirect;
+use PhpParser\Node\Expr\FuncCall;
 
 //Processing the data in the admin's page
 class AdminController extends Controller
